@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --primary-color: #273946;
+    --secondary-color: #728DA3;
+    --accent-color: #F2F4F8;
+    --forth-color: #02b3e4;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-color);
+}
+
+.rounded{
+    border-radius: .35rem!important;
+}
+
+.card-custom{
+    border: 0!important;
+}
+.date-custom{
+    color: var(--forth-color);
+}
+
+.hr {
+    border: 1px solid rgba(0,0,0,.125);
+  }
+
+/*background image*/
+.bgimage{
+    background: linear-gradient(#02b3e400, #ffffff00), url(/static/images/bg_image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    height: 550px;
+}
+
+.card-body-custom{
+    padding: 0;
+}
+
+.a-custom{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.a-custom:hover{
+    color: var(--forth-color);
+}
+
+.a-custom-lab{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.a-custom-lab:hover{
+    color: #F57C14;
+}
+
+.p-color-appoinment{
+    color: var(--forth-color);
+    text-decoration: none;
+}
+.p-color-lab{
+    color: #F57C14;
+    text-decoration: none;
+}
+.i-color{
+    color: var(--forth-color);
+}
+.i-color-lab{
+    color: #F57C14;
+}
+.p-color{
+    color: var(--secondary-color);
+}
+
+.p-notification{
+    margin: 0;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.p-history{
+    margin: 0;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+/*text justify*/
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+.fs-1{
+    font-weight: 700;
+}
+.fs-2{
+    font-weight: 600;
+}
+.fs-3{
+    font-weight: 600;
+}
+.fs-4{
+    font-weight: 600;
+}
+.fs-5{
+    font-weight: 600;
+}
+.fs-6{
+    font-weight: 500;
+}
+
+/*btn*/
+.btn-primary {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/*Time Btn*/
+.btn-outline-time {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.btn-outline-time:hover, .btn-outline-time:focus, .btn-outline-time:active, .btn-outline-time.active, .open>.dropdown-toggle.btn-outline-time {
+    color: #fff;
+    border-color: #F57C14;
+    background-color: #F57C14;
+}
+
+/*Time Custom*/
+.custom-color {
+    color: var(--secondary-color);
+}
+.custom-color:hover, .custom-color:focus, .custom-color:active, .custom-color.active, .open>.dropdown-toggle.custom-color {
+    color: #F57C14;
+}
+
+/*video*/
+.video-fluid {
+    width: 100%;
+    height: auto;
+  }
+
+.card-custom-health{
+    border: 0!important;
+    width: 22rem;
+}
+
+.a-custom-health{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.container-fluid-custom{
+    background-color: var(--accent-color);
+}
+
+.p-custom{
+    margin: 0;
+    color: var(--forth-color);
+}
+
+.col-custom{
+    padding: 0;
+}
+
+.p-custom-title{
+    margin: 0;
+    padding: 0;
+}
+.a-custom-footer{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.a-custom-profile{
+    color: #F57C14;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0;
+}
+
+/*hero image lab*/
+.heroimage {
+    color: #fff;
+    background-image: url("../images/lab1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+/*hero image appoinment*/
+.heroimge-appoinment{
+    color: #fff;
+    background-image: url("../images/appoinment.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+/*hero image appoinment-1*/
+.heroimge-appoinment1{
+    color: #fff;
+    background-image: url("../images/appoinment1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+/*form controlar*/
+.form-control{
+    border: 0;
+}
+
+.search-color{
+    color: #F57C14;
+}
+
+.form-control-custom::-webkit-input-placeholder {
+    color: #F57C14;
+}
+
+.p-custom-test{
+    margin: 0;
+}
+
+.p-color-test{
+    margin: 0;
+    color: var(--secondary-color)
+}
+
+.row-custom {
+    --bs-gutter-x: 0;
+}
+
+.row-custom-image{
+    --bs-gutter-x:0;
+    width: 90px;
+}
+
+/*Modal*/
+.modal-content-custom{
+    border: 0;
+}
+
+.a-custom-test{
+    color: #F57C14;
+    text-decoration: none;
+}
+.p-custom-modal{
+    color: #F57C14;
+}
+
+.icon-custom{
+    font-size: 28px;
+    color: #F57C14;
+}
+
+.icon-custom-edit{
+    font-size: 28px;
+    color: var(--forth-color);
+}
+
+.a-lab-card{
+    color: var(--forth-color);
+}
+
+.card-custom-place{
+    border: 0!important;
+    transform: translateY(-50%);
+}
+
+.img-custom{
+    width: 120px;
+    height: 120px;
+}
+
+.a-custom-appoinment{
+    color: var(--forth-color);
+    text-decoration: none;
+}
+
+/*service card image*/
+.srvice-card-img{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-booktest{
+    color: #F57C14;
+}
+
+/*payment form*/
+
+.form-control-c{
+    color: var(--secondary-color);
+    background-color: #fafafa;
+}
+
+.icon-login{
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 576px) {
+    [class*="img-custom"]{
+    width: 80px;
+    height: 80px;
+    }
+}
+
+/*transform*/
+@media only screen and (max-width: 576px) {
+    [class*="transform"]{
+        transform: translateY(+34%);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    [class*="a-transform"]{
+        transform: translateY(+63%);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    [class*="b-transform"]{
+        transform: translateY(+115%);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    [class*="c-transform"]{
+        transform: translateY(+300%);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    [class*="d-transform"]{
+        transform: translateY(+60%);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    [class*="e-transform"]{
+        transform: translateY(+560%);
+    }
+}
+
+@media only screen and (max-width: 576px){
+    /*hero image appoinment-1*/
+    [class*="heroimge-appoinment1"]{
+        color: #fff;
+        background-image: url("../images/appoinment1.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    /*hero image appoinment*/
+    [class*="heroimge-appoinment"] {
+        color: #fff;
+        background-image: url("../images/appoinment.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    /*hero image*/
+    [class*="heroimage"] {
+        color: #fff;
+        background-image: url("../images/lab1.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 150px;
+      }
+}
+@media only screen and (max-width: 576px) {
+   /*background image*/
+   [class*="bgimage"]{
+        background-image: url(../images/bg\ image.png);
+        background-size: cover;
+        height: 260px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    /*health articles card*/
+    [class*="card-custom-health"]{
+        border: 0!important;
+        width: 19rem;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    /*health articles card*/
+    [class*="card-custom-health"]{
+        border: 0!important;
+        width: 18rem;
+    }
+}
