@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 const Header = (props) => {
+
+    const [showMe, setShowMe] = useState(true);
+    function toggle(){
+        setShowMe(!showMe);
+    }
     return (
         <header>
             <nav className="navbar sticky-top navbar-light bg-white shadow-sm py-2 py-md-3 text-center">
@@ -10,31 +16,31 @@ const Header = (props) => {
                     <Link className="navbar-brand fs-3" href="/" >
                             <img src="/static/images/Gcare.svg" height={'50px'} alt=""/>
                     </Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler" onClick={toggle} type="button"  aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className={!showMe? "collapse navbar-collapse show" :"collapse navbar-collapse"} id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link  href="/"><a className="nav-link active">Home</a></Link>
+                                <Link  href="/"><a className="nav-link active" onClick={toggle}>Home</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link  href="/login"><a className="nav-link ">Log In</a></Link>
+                                <Link  href="/login"><a className="nav-link " onClick={toggle}>Log In</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link  href="/profile"><a className="nav-link ">Profile</a></Link>
+                                <Link  href="/profile"><a className="nav-link " onClick={toggle}>Profile</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link  href="/notification"><a className="nav-link ">Notification</a></Link>
+                                <Link  href="/notification"><a className="nav-link " onClick={toggle}>Notification</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link  href="/history"><a className="nav-link ">History</a></Link>
+                                <Link  href="/history"><a className="nav-link " onClick={toggle} >History</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link  href="/custormer_support"><a className="nav-link ">Customer Support</a></Link>
+                                <Link  href="/custormer_support"><a className="nav-link " onClick={toggle}>Customer Support</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link  href="/downloadapp"><a className="nav-link ">Download App</a></Link>
+                                <Link  href="/downloadapp"><a className="nav-link " onClick={toggle}>Download App</a></Link>
                             </li>
                         </ul>
                     </div>
