@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
-import Image from "next/image";
+import React, {useEffect, useState} from 'react';
 import Link from "next/link";
-import axios from "axios";
-
+import {useAuth} from "../hooks";
 const Header = (props) => {
-
-    const [showMe, setShowMe] = useState(true);
+    const auth = useAuth()
+    const [showMe,setShowMe] = useState(true)
     function toggle(){
         setShowMe(!showMe);
     }
@@ -13,7 +11,7 @@ const Header = (props) => {
         <header>
             <nav className="navbar sticky-top navbar-light bg-white shadow-sm py-2 py-md-3 text-center">
                 <div className="container">
-                    <Link className="navbar-brand fs-3" href="/" >
+                    <Link href="/" >
                             <img src="/static/images/Gcare.svg" height={'50px'} alt=""/>
                     </Link>
                     <button className="navbar-toggler" onClick={toggle} type="button"  aria-label="Toggle navigation">
@@ -21,24 +19,38 @@ const Header = (props) => {
                     </button>
                     <div className={!showMe? "collapse navbar-collapse show" :"collapse navbar-collapse"} id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link  href="/"><a className="nav-link active" onClick={toggle}>Home</a></Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link  href="/login"><a className="nav-link " onClick={toggle}>Log In</a></Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link  href="/profile"><a className="nav-link " onClick={toggle}>Profile</a></Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link  href="/notification"><a className="nav-link " onClick={toggle}>Notification</a></Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link  href="/history"><a className="nav-link " onClick={toggle} >History</a></Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link  href="/custormer_support"><a className="nav-link " onClick={toggle}>Customer Support</a></Link>
-                            </li>
+                            {(auth.user) ? (
+                                <>
+                                    <li className="nav-item">
+                                        <Link  href="/"><a className="nav-link active" onClick={toggle}>Home</a></Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link href="/profile"><a className="nav-link " onClick={toggle}>Profile 1</a></Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link  href="/notification"><a className="nav-link " onClick={toggle}>Notification</a></Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link  href="/history"><a className="nav-link " onClick={toggle} >History</a></Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link  href="/custormer_support"><a className="nav-link " onClick={toggle}>Customer Support</a></Link>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                    <li className="nav-item">
+                                        <Link  href="/"><a className="nav-link active" onClick={toggle}>Home</a></Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link  href="/login"><a className="nav-link " onClick={toggle}>Log In 1</a></Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link href="/register"><a className="nav-link " onClick={toggle}>Register</a></Link>
+                                    </li>
+
+                                </>
+                            )}
                             <li className="nav-item">
                                 <Link  href="/downloadapp"><a className="nav-link " onClick={toggle}>Download App</a></Link>
                             </li>

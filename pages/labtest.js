@@ -5,7 +5,7 @@ import LabSearch from "./components/Labtest/lab_search";
 import TestList from "./components/Labtest/test_list";
 import TestAddModal from "./components/Labtest/test_add_modal";
 
-function Labtest(props) {
+function Labtest() {
     return (
         <>
 

@@ -1,8 +1,5 @@
 import React from 'react';
 import SimpleSlider from "../SlickSlider";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 function HealthTips(props) {
     return (
        <>
