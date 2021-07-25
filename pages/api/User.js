@@ -11,7 +11,14 @@ export default {
     //     await Csrf.getCookie();
     //     return Api.post("/login/1", form);
     // },
-
+    async profileImage(headers) {
+        await Csrf.getCookie();
+        return Api.get("/profile-images",headers)
+    },
+    async uploadProfileImages(headers){
+        await Csrf.getCookie();
+        return Api.post('/upload_profile_images',headers)
+    },
     async logout(headers) {
         await Csrf.getCookie();
         return Api.get("/logout",headers)

@@ -1,12 +1,67 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ProtectedPage from "./components/protectedPage";
 import {useAuth} from "./hooks";
 import {useRouter} from "next/router";
+import axios from "axios";
+import User from "./api/User";
+import cookie from "cookie";
 
 function Profile(props) {
     const router = useRouter()
     const {user, logout} = useAuth();
+    const [profileImage,setProfileImage] = useState(null)
 
+    const fetchProfileImage = async () => {
+        const header = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-XSRF-TOKEN': cookie.parse(document.cookie)['XSRF-TOKEN'] || false,
+        }
+        try {
+            const response = await User.profileImage(header);
+            if (response.status === 200) {
+                const data =  response.data;
+                setProfileImage(data);
+            }
+            else {
+                setProfileImage(false)
+            }
+        } catch (error) {
+            setProfileImage(false);
+        }
+    };
+    useEffect(() =>{
+            fetchProfileImage();
+        },[]
+    )
+    const handleChange = async (e) => {
+        e.preventDefault();
+        let data;
+        console.log(e.target.files[0])
+        data.append('images', e.target.files[0])
+        // const header = {
+        //     'Accept': 'application/json',
+        //     'Content-Type': 'application/json',
+        //     'X-XSRF-TOKEN': cookie.parse(document.cookie)['XSRF-TOKEN'] || false,
+        //     data:data,
+        // }
+        try {
+            const response = await User.uploadProfileImages(data);
+            if (response.status === 200) {
+                const data =  response.data;
+                setProfileImage(data);
+            }
+            else {
+                setProfileImage(false)
+            }
+        } catch (error) {
+            setProfileImage(false);
+        }
+    }
+    const clickFileUpload = () => {
+        document.getElementById("inputProfileImage").click()
+        document.querySelector("#imageForm")
+    }
     return (
         <>
             <ProtectedPage >
@@ -20,7 +75,11 @@ function Profile(props) {
                                         <div className="col-12 col-sm-auto mb-3">
                                             <div className="mx-auto" >
                                                 <div className="d-flex justify-content-center align-items-center rounded" >
-                                                    <span >140x140</span>
+                                                    <span >
+                                                        <img className="thumbnail" src="http://placehold.it/140x140" alt=""/>
+
+                                                    </span>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -30,7 +89,10 @@ function Profile(props) {
                                                 <p className="mb-0">@sabid</p>
                                                 <div className="text-muted"><small>Last order 2 days ago</small></div>
                                                 <div className="mt-2">
-                                                    <button className="btn btn-primary" type="button">
+                                                    <form  encType="multipart/form-data" id="imageForm">
+                                                        <input type="file" className="hidden" id="inputProfileImage" onChange={handleChange}/>
+                                                    </form>
+                                                    <button className="btn btn-primary" type="button" onClick={clickFileUpload}>
                                                         <i className="fa fa-fw fa-camera"></i>
                                                         <span>Change Photo</span>
                                                     </button>
