@@ -26,10 +26,9 @@ function Register(props) {
         data.append('password',password);
         data.append('confirm_password',confirmpassword);
         let response = User.register(data).then(function (response){
-            console.log(response.data.success);
+            // console.log(response.data.success);
             if(response.data.success){
-                    alert('Successfully Registered')
-                    router.push('/login')
+                    alert('Successfully Updated')
                 } else {
                     newError = response.data.data;
                         Object.keys(newError).forEach(function (error,index){

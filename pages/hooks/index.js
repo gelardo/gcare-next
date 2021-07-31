@@ -84,6 +84,7 @@ function useProviderAuth(){
     return {
         user,
         login,
+        fetchUser,
         logout
     };
 }

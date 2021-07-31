@@ -6,12 +6,12 @@ import DoctorBookingForm from "./components/DoctorBooking/doctor_booking_form";
 
 function Doctorbooking(props) {
     return (
-        <>
-            <LocationFinder/>
-            <DoctorSearch/>
-            <DoctorList/>
-            <DoctorBookingForm/>
-        </>
+            <>
+                <LocationFinder/>
+                <DoctorSearch/>
+                <DoctorList/>
+                <DoctorBookingForm/>
+            </>
     );
 }
 

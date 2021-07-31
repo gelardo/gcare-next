@@ -27,5 +27,17 @@ export default {
     async auth(headers) {
         await Csrf.getCookie();
         return Api.get("/user",headers);
+    },
+    async updateProfile(headers){
+        await Csrf.getCookie();
+        return Api.post('/update_profile',headers)
+    },
+    async listDepartment(headers){
+        await Csrf.getCookie();
+        return Api.get('/speciality/index',headers)
+    },
+    async bookDoctorAppointment(headers){
+        await Csrf.getCookie()
+        return Api.post('/book_appointment/store',headers)
     }
 };
