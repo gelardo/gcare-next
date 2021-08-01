@@ -25,7 +25,7 @@ const Doctor = ({doctorList}) => {
 export async function getStaticProps({params}) {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
-    const res = await fetch('https://gcare.com/bd/api/speciality/show/'+params.sid)
+    const res = await fetch('https://gcare.com.bd/api/speciality/show/'+params.sid)
     const doctorList = await res.json()
 
     // By returning { props: { posts } }, the Blog component

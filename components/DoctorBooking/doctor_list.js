@@ -3,7 +3,7 @@ import DoctorBookingForm from "./doctor_booking_form";
 import { Modal, Button } from 'react-bootstrap'
 function DoctorList(props) {
     let doctor = props.value
-
+    console.log(doctor)
     return (
         <div>
             <div className="container mt-4 mt-md-5">
