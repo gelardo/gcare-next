@@ -11,7 +11,7 @@ function Hero(props) {
                             <h1 className="fs-1 text-uppercase text-start text-white">Coronavirus <br/> Outbreak</h1>
                             <p className="text-start text-white">Don't rely on social media forwards.<br/>Consult our trusted doctors instead.</p>
                             <div className="d-flex justify-content-start">
-                                <Link href="/"><a className="btn btn-primary rounded-pill px-3"  role="button">Chat With a Doctor Now</a></Link>
+                                <Link href="/"><a className="btn btn-primary rounded-pill px-3" role="button">Chat With a Doctor Now</a></Link>
                             </div>
                             <a className="d-flex justify-content-start link pt-2 pt-md-3" href="#">Read more about COVID-19</a>
                         </div>

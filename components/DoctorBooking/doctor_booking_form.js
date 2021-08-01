@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {useAuth} from "../../hooks";
-import User from "../../api/User";
+import User from "../../pages/api/User";
 import { Modal, Button } from 'react-bootstrap'
 
 function DoctorBookingForm(props) {
@@ -18,7 +18,6 @@ function DoctorBookingForm(props) {
     if(auth.user) {
         patient_id = auth.user.id
     }
-    console.log(bookingTime)
     const handleSubmit = async (e) => {
         e.preventDefault();
         let data = new FormData();

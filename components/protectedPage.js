@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import Notloggedin from "./notloggedin";
-import Login from "../login";
+import Login from "../pages/login";
 import {useRouter} from "next/router";
 import {useAuth} from "../hooks";
 

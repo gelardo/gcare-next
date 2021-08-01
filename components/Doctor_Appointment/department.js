@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
-import User from "../../api/User";
+import User from "../../pages/api/User";
 function Department(props) {
     const[departmentList, setDepartmentList] = useState([]);
     useEffect(()=>{

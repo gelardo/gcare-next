@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 import User from "./api/User";
-import {useAuth} from "./hooks";
+import {useAuth} from "../hooks";
 import {useRouter} from "next/router";
 
 const Login = () => {

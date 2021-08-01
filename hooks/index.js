@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from 'react'
 import { useRouter } from 'next/router';
 import cookie from 'cookie';
-import User from '../api/User'
+import User from '../pages/api/User'
 
 const authContext = createContext()
 

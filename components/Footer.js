@@ -38,7 +38,7 @@ function Footer(props) {
                     </div>
 
                     <div className="col-2 col-md-2 d-flex justify-content-center">
-                        <img src="/static/images/google.svg" width="41" height="41"  className="my-3" alt="..."/>
+                        <img src="/static/images/google.svg" width="41" height="41" className="my-3" alt="..."/>
                     </div>
 
                 </div>
@@ -47,7 +47,7 @@ function Footer(props) {
         <div className="container d-transform">
             <div className="row">
                 <div className="col-12 col-md-3">
-                    <img src="/static/images/logo.svg"  className="pt-4 pt-md-5" alt="..."/>
+                    <img src="/static/images/logo.svg" className="pt-4 pt-md-5" alt="..."/>
                         <p className="pt-4 a-custom-footer ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deleniti fugiat perspiciatis repudiandae velit!</p>
                 </div>
                 <div className="col-12 col-md-3">
