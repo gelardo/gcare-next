@@ -3,7 +3,6 @@ import DoctorBookingForm from "./doctor_booking_form";
 import { Modal, Button } from 'react-bootstrap'
 function DoctorList(props) {
     let doctor = props.value
-    console.log(doctor)
     return (
         <div>
             <div className="container mt-4 mt-md-5">
@@ -20,10 +19,10 @@ function DoctorList(props) {
                             </div>
                             <div className="row row-custom">
                                 <div className="col-12">
-                                    <p className="fs-4 ps-3 p-custom-test">{doctor[0].name}</p>
+                                    <p className="fs-4 ps-3 p-custom-test">{doctor.name}</p>
                                 </div>
                                 <div className="col-12">
-                                    {doctor[0].specialities.map((special,index) => (
+                                    {doctor.specialities.map((special,index) => (
                                         <span key={index} className="ps-3 small p-custom">{special.name} </span>
                                     ))}
                                 </div>
@@ -34,7 +33,7 @@ function DoctorList(props) {
                                     <p className="ps-3 p-custom p-color-test">Speaks: English, Bangla.</p>
                                 </div>
                                 <div className="col-12">
-                                    <p className="ps-3 p-custom p-color-test">Clinic: {doctor[0].hospitals.map((hospital,index) => (
+                                    <p className="ps-3 p-custom p-color-test">Clinic: {doctor.hospitals.map((hospital,index) => (
                                         <small key={index} className="small">{hospital.name},&nbsp;</small>
                                     ))}
                                     </p>
@@ -53,10 +52,10 @@ function DoctorList(props) {
 
                             </div>
                             <div className="col-12">
-                                <p className="p-custom fs-4 pt-2">Fee: {doctor[0].fees}.00 TK</p>
+                                <p className="p-custom fs-4 pt-2">Fee: {doctor.fees}.00 TK</p>
                             </div>
                             <div className="col-12">
-                                <DoctorBookingForm key={doctor[0].id} value={doctor}/>
+                                <DoctorBookingForm key={doctor.id} value={doctor}/>
 
                             </div>
                         </div>

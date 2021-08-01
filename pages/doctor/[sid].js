@@ -7,13 +7,13 @@ import DoctorBookingForm from "../../components/DoctorBooking/doctor_booking_for
 const Doctor = ({doctorList}) => {
     const router = useRouter()
     const { sid } = router.query
-     console.log(doctorList)
+    let doctors = doctorList.data[0].doctors
         return (
             <>
             <LocationFinder/>
             <DoctorSearch/>
 
-                {(doctorList) && (doctorList.map((doctor,index  ) => (
+                {(doctors) && (doctors.map((doctor,index  ) => (
                     <DoctorList key={index} value={doctor}/>
                 )))}
             </>
