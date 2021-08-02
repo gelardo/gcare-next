@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
-import User from "./api/User";
+import User from "../api/User";
 import {useAuth} from "../hooks";
 import {useRouter} from "next/router";
 
@@ -10,17 +10,11 @@ const Login = () => {
     const initialError = []
     let [ useremail, setUseremail ] = useState('');
     let [ userpassword, setPassword ] = useState('');
-    let [errormessage, setErrorMessage] = useState([]);
+    let [ errormessage, setErrorMessage] = useState([]);
     let newError = [];
     const  clearState = () => {
         setErrorMessage(errormessage => [...initialError])
     }
-    // useEffect(
-    //     () => {
-    //         if(token !== null) router.push('/profile')
-    //     }
-    // );
-
     const handleSubmit = async (e) =>{
         e.preventDefault();
             let data = new FormData();
@@ -29,6 +23,7 @@ const Login = () => {
             data.append('password',userpassword);
             try {
                 const loginAttempt = await login(useremail, userpassword).then(function (response){
+                    console.log(response.data)
                     if (response.ok === true) {
                         router.push('/profile');
                     } else {
@@ -90,29 +85,29 @@ const Login = () => {
 }
 
 export default Login;
-export async function getServerSideProps({ res, req }) {
-    // Is there a better way to know the user is already logged in?
-    try {
-        const isAuthed = await fetch(`http://localhost:8000/api/user`, {
-            credentials: "include",
-            headers: {
-                accept: 'application/json',
-                referer: 'http://localhost:8000/',
-                cookie: req.headers.cookie,
-            }
-        });
-        if (isAuthed.status === 200) {
-            res.setHeader('Location', "/");
-            res.statusCode = 302;
-
-            return { props: { } };
-        }
-    } catch (error) {
-        console.error(error);
-    }
-
-    const csrf = await fetch(`http://localhost:8000/sanctum/csrf-cookie`)
-    res.setHeader('set-cookie', csrf.headers.raw()['set-cookie']);
-
-    return { props: { } };
-}
+// export async function getServerSideProps({ res, req }) {
+//     // Is there a better way to know the user is already logged in?
+//     try {
+//         const isAuthed = await fetch(`https://gcare.com.bd/api/user`, {
+//             credentials: "include",
+//             headers: {
+//                 accept: 'application/json',
+//                 referer: 'https://gcare.com.bd',
+//                 cookie: req.headers.cookie,
+//             }
+//         });
+//         if (isAuthed.status === 200) {
+//             res.setHeader('Location', "/");
+//             res.statusCode = 302;
+//
+//             return { props: { } };
+//         }
+//     } catch (error) {
+//         console.error(error);
+//     }
+//
+//     const csrf = await fetch(`https://gcare.com.bd/sanctum/csrf-cookie`)
+//     res.setHeader('set-cookie', csrf.headers.raw()['set-cookie']);
+//
+//     return { props: { } };
+// }

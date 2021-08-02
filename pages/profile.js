@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ProtectedPage from "../components/protectedPage";
 import {useAuth} from "../hooks";
-import User from "./api/User";
+import User from "../api/User";
 import cookie from "cookie";
 import Moment from 'react-moment';
 

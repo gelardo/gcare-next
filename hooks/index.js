@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from 'react'
 import { useRouter } from 'next/router';
 import cookie from 'cookie';
-import User from '../pages/api/User'
+import User from '../api/User'
 
 const authContext = createContext()
 
@@ -19,7 +19,7 @@ export const useAuth = () => useContext(authContext)
 function useProviderAuth(){
     const[user,setUser] = useState(null);
     const router = useRouter();
-    const login = (email,password) => fetch('http://localhost:8000/api/login/1  ',{
+    const login = (email,password) => fetch('https://gcare.com.bd/api/login/1  ',{
         method:'POST',
         credentials: "include",
         headers:{
@@ -32,7 +32,7 @@ function useProviderAuth(){
         fetchUser();
         return data;
     });
-    const logout = (email, password) => fetch('http://localhost:8000/api/logout', {
+    const logout = (email, password) => fetch('https://gcare.com.bd/api/logout', {
         method: 'POST',
         credentials: "include",
         headers: {

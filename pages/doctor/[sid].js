@@ -7,7 +7,9 @@ import DoctorBookingForm from "../../components/DoctorBooking/doctor_booking_for
 const Doctor = ({doctorList}) => {
     const router = useRouter()
     const { sid } = router.query
+
     let doctors = doctorList.data[0].doctors
+    console.log(doctors)
         return (
             <>
             <LocationFinder/>
@@ -36,12 +38,12 @@ export async function getStaticProps({params}) {
         },
     }
 }
-export async function getStaticPaths(params) {
+export async function getStaticPaths() {
     return {
         paths: [
             { params: { sid: '1' } },
         ],
-        fallback: true,
+        fallback: false,
     }
 }
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Link from "next/link";
-import User from "./api/User";
+import User from "../api/User";
 import {useRouter} from "next/router";
 
 function Register(props) {
@@ -28,7 +28,8 @@ function Register(props) {
         let response = User.register(data).then(function (response){
             // console.log(response.data.success);
             if(response.data.success){
-                    alert('Successfully Updated')
+                    alert('Successfully Register')
+                    router.push('/login')
                 } else {
                     newError = response.data.data;
                         Object.keys(newError).forEach(function (error,index){

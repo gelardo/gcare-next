@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {useAuth} from "../../hooks";
-import User from "../../pages/api/User";
+import User from "../../api/User";
 import { Modal, Button } from 'react-bootstrap'
 
 function DoctorBookingForm(props) {
@@ -11,7 +11,7 @@ function DoctorBookingForm(props) {
     const handleShow = () => setShow(true);
     const auth = useAuth()
     let doctor = props.value
-    let doctor_id = doctor.id
+    let doctor_id = doctor?.id
     let patient_id = 0
     const [bookingDate, setBookingDate] = useState('');
     const [bookingTime, setBookingTime] = useState('');
@@ -64,10 +64,10 @@ function DoctorBookingForm(props) {
                                 </div>
                                 <div className="row row-custom">
                                     <div className="col-12">
-                                        <p className="fs-4 ps-3 p-custom-test">{doctor.name}</p>
+                                        <p className="fs-4 ps-3 p-custom-test">{doctor?.name}</p>
                                     </div>
                                     <div className="col-12">
-                                        {doctor.specialities.map((special,index) => (
+                                        {doctor?.specialities.map((special,index) => (
                                             <span key={index} className="ps-3 small p-custom">{special.name} </span>
                                         ))}
                                     </div>
@@ -78,8 +78,8 @@ function DoctorBookingForm(props) {
                                         <p className="ps-3 p-custom p-color-test">Speaks: English, Bangla.</p>
                                     </div>
                                     <div className="col-12">
-                                        <p className="ps-3 p-custom p-color-test">Clinic: {doctor.hospitals.map((hospital,index) => (
-                                            <small key={index} className="small">{hospital.name},&nbsp;</small>
+                                        <p className="ps-3 p-custom p-color-test">Clinic: {doctor?.hospitals.map((hospital,index) => (
+                                            <small key={index} className="small">{hospital?.name},&nbsp;</small>
                                         ))}
                                         </p>
                                     </div>
@@ -94,7 +94,7 @@ function DoctorBookingForm(props) {
                                         className="fas fa-user-clock pe-2"></i>5:30 PM, Everyday</p>
                                 </div>
                                 <div className="col-12">
-                                    <p className="p-custom fs-4 pt-2">Fee: {doctor.fees}.00 TK</p>
+                                    <p className="p-custom fs-4 pt-2">Fee: {doctor?.fees}.00 TK</p>
                                 </div>
                                 <div className="col-12 d-flex justify-content-center mt-2">
                                     <a className="btn pe-4" href="#" role="button"><i
@@ -109,7 +109,7 @@ function DoctorBookingForm(props) {
                         <div className="mt-3 mt-md-4">
                             <div className="card card-custom rounded shadow-sm">
                                 <div className="col-12 d-flex justify-content-center pt-3">
-                                    <input type="date" id={`picker`+doctor.id} onChange={ ( e ) => setBookingDate( e.target.value ) } className="card-custom fs-4 date-custom"/>
+                                    <input type="date" id={`picker`+doctor?.id} onChange={ ( e ) => setBookingDate( e.target.value ) } className="card-custom fs-4 date-custom"/>
                                 </div>
                                 <hr/>
                                 <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -127,59 +127,59 @@ function DoctorBookingForm(props) {
                                              data-bs-parent="#accordionFlushExample">
                                             <div className="accordion-body">
                                                 <input type="radio" value={`7:00 AM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="morning"
-                                                       id={`morning1`+doctor.id} autoComplete="off"/>
+                                                       id={`morning1`+doctor?.id} autoComplete="off"/>
                                                 <label className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                       htmlFor={`morning1`+doctor.id}>7:00 AM</label>
+                                                       htmlFor={`morning1`+doctor?.id}>7:00 AM</label>
 
                                                 <input type="radio" value={`7:30 AM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="morning"
-                                                       id={`morning2`+doctor.id} autoComplete="off"/>
+                                                       id={`morning2`+doctor?.id} autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning2`+doctor.id}>7:30 AM</label>
+                                                    htmlFor={`morning2`+doctor?.id}>7:30 AM</label>
 
                                                 <input type="radio" value={`8:00 AM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="morning"
-                                                       id={`morning3`+doctor.id} autoComplete="off"/>
+                                                       id={`morning3`+doctor?.id} autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning3`+doctor.id}>8:00 AM</label>
+                                                    htmlFor={`morning3`+doctor?.id}>8:00 AM</label>
 
                                                 <input type="radio" value={`8:30 AM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="morning" id={`morning4`+doctor.id}
+                                                       name="morning" id={`morning4`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning4`+doctor.id}>8:30 AM</label>
+                                                    htmlFor={`morning4`+doctor?.id}>8:30 AM</label>
 
                                                 <input type="radio" value={`9:00 AM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="morning" id={`morning5`+doctor.id}
+                                                       name="morning" id={`morning5`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning5`+doctor.id}>9:00 AM</label>
+                                                    htmlFor={`morning5`+doctor?.id}>9:00 AM</label>
 
                                                 <input type="radio" value={'9:30 AM'} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="morning" id={`morning6`+doctor.id}
+                                                       name="morning" id={`morning6`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning6`+doctor.id}>9:30 AM</label>
+                                                    htmlFor={`morning6`+doctor?.id}>9:30 AM</label>
 
                                                 <input type="radio"
                                                        className="btn-check" value="10:00 AM" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="morning" id={`morning7`+doctor.id}
+                                                       name="morning" id={`morning7`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning7`+doctor.id}>10:00
+                                                    htmlFor={`morning7`+doctor?.id}>10:00
                                                     AM</label>
 
                                                 <input type="radio"
                                                        className="btn-check" value="11:00 AM"  onClick={ ( e ) => console.log(e.target.value) }
-                                                       name="morning" id={`morning8`+doctor.id}
+                                                       name="morning" id={`morning8`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`morning8`+doctor.id}>11:00
+                                                    htmlFor={`morning8`+doctor?.id}>11:00
                                                     AM</label>
                                             </div>
                                         </div>
@@ -198,61 +198,61 @@ function DoctorBookingForm(props) {
                                              data-bs-parent="#accordionFlushExample">
                                             <div className="accordion-body">
                                                 <input type="radio" value={`12:00 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="afternoon"
-                                                       id={`afternoon1`+doctor.id} autoComplete="off"/>
+                                                       id={`afternoon1`+doctor?.id} autoComplete="off"/>
                                                 <label className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                       htmlFor={`afternoon1`+doctor.id}>12:00 PM</label>
+                                                       htmlFor={`afternoon1`+doctor?.id}>12:00 PM</label>
 
                                                 <input type="radio" value={`12:30 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="afternoon"
-                                                       id={`afternoon2`+doctor.id} autoComplete="off"/>
+                                                       id={`afternoon2`+doctor?.id} autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon2`+doctor.id}>12:30 PM</label>
+                                                    htmlFor={`afternoon2`+doctor?.id}>12:30 PM</label>
 
                                                 <input type="radio" value={`1:00 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="afternoon" id={`afternoon3`+doctor.id}
+                                                       name="afternoon" id={`afternoon3`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon3`+doctor.id}>1:00 PM</label>
+                                                    htmlFor={`afternoon3`+doctor?.id}>1:00 PM</label>
 
                                                 <input type="radio" value={`2:30 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="afternoon" id={`afternoon4`+doctor.id}
+                                                       name="afternoon" id={`afternoon4`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon4`+doctor.id}>2:30 PM</label>
+                                                    htmlFor={`afternoon4`+doctor?.id}>2:30 PM</label>
 
                                                 <input type="radio" value={`3:00 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="afternoon" id={`afternoon5`+doctor.id}
+                                                       name="afternoon" id={`afternoon5`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon5`+doctor.id}>3:00 PM</label>
+                                                    htmlFor={`afternoon5`+doctor?.id}>3:00 PM</label>
 
                                                 <input type="radio" value={`3:30 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="afternoon" id={`afternoon6`+doctor.id}
+                                                       name="afternoon" id={`afternoon6`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon6`+doctor.id}>3:30 PM</label>
+                                                    htmlFor={`afternoon6`+doctor?.id}>3:30 PM</label>
 
                                                 <input type="radio" value={`4:00 PM`}
                                                        className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="afternoon" id={`afternoon7`+doctor.id}
+                                                       name="afternoon" id={`afternoon7`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon7`+doctor.id}>4:00 PM
+                                                    htmlFor={`afternoon7`+doctor?.id}>4:00 PM
                                                    </label>
 
                                                 <input type="radio" value={`05:00 `}
                                                        className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
                                                        name="afternoon"
-                                                       id={`afternoon8`+doctor.id}
+                                                       id={`afternoon8`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`afternoon8`+doctor.id}>05:00
+                                                    htmlFor={`afternoon8`+doctor?.id}>05:00
                                                 PM</label>
                                             </div>
                                         </div>
@@ -271,59 +271,59 @@ function DoctorBookingForm(props) {
                                              data-bs-parent="#accordionFlushExample">
                                             <div className="accordion-body">
                                                 <input type="radio" value={`7:00 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="evening"
-                                                       id={`evening1`+doctor.id} autoComplete="off"/>
+                                                       id={`evening1`+doctor?.id} autoComplete="off"/>
                                                 <label className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                       htmlFor={`evening1`+doctor.id}>7:00 PM</label>
+                                                       htmlFor={`evening1`+doctor?.id}>7:00 PM</label>
 
                                                 <input type="radio" value={`7:30 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="evening"
-                                                       id={`evening2`+doctor.id} autoComplete="off"/>
+                                                       id={`evening2`+doctor?.id} autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening2`+doctor.id}>7:30 PM</label>
+                                                    htmlFor={`evening2`+doctor?.id}>7:30 PM</label>
 
                                                 <input type="radio" value={`8:00 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) } name="evening"
-                                                       id={`evening3`+doctor.id} autoComplete="off"/>
+                                                       id={`evening3`+doctor?.id} autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening3`+doctor.id}>8:00 PM</label>
+                                                    htmlFor={`evening3`+doctor?.id}>8:00 PM</label>
 
                                                 <input type="radio" value={`8:30 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="evening" id={`evening4`+doctor.id}
+                                                       name="evening" id={`evening4`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening4`+doctor.id}>8:30 PM</label>
+                                                    htmlFor={`evening4`+doctor?.id}>8:30 PM</label>
 
                                                 <input type="radio" value={`9:00 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="evening" id={`evening5`+doctor.id}
+                                                       name="evening" id={`evening5`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening5`+doctor.id}>9:00 PM</label>
+                                                    htmlFor={`evening5`+doctor?.id}>9:00 PM</label>
 
                                                 <input type="radio" value={`9:30 PM`} className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="evening" id={`evening6`+doctor.id}
+                                                       name="evening" id={`evening6`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening6`+doctor.id}>9:30 PM</label>
+                                                    htmlFor={`evening6`+doctor?.id}>9:30 PM</label>
 
                                                 <input type="radio" value={`10:00 PM`}
                                                        className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="evening" id={`evening7`+doctor.id}
+                                                       name="evening" id={`evening7`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening7`+doctor.id}>10:00
+                                                    htmlFor={`evening7`+doctor?.id}>10:00
                                                     PM</label>
 
                                                 <input type="radio" value={`11:00`}
                                                        className="btn-check" onChange={ ( e ) => setBookingTime( e.target.value ) }
-                                                       name="evening" id={`evening8`+doctor.id}
+                                                       name="evening" id={`evening8`+doctor?.id}
                                                        autoComplete="off"/>
                                                 <label
                                                     className="btn btn-outline-time me-2 me-md-3 my-2"
-                                                    htmlFor={`evening8`+doctor.id}>11:00
+                                                    htmlFor={`evening8`+doctor?.id}>11:00
                                                     PM</label>
                                             </div>
                                         </div>

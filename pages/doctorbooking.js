@@ -10,7 +10,6 @@ function Doctorbooking(props) {
                 <LocationFinder/>
                 <DoctorSearch/>
                 <DoctorList/>
-                <DoctorBookingForm/>
             </>
     );
 }
