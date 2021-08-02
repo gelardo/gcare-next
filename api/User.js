@@ -1,6 +1,12 @@
 import Api from "./Api";
 import Csrf from "./Csrf";
-
+// export  const  listSpecialities = async () => {
+//       await Api.get('/speciality/index').then(function (response){
+//         return response.data.data
+//     }).catch(function (error){
+//         return {error};
+//     })
+// }
 export default {
     async register(form) {
         await Csrf.getCookie();
@@ -39,5 +45,9 @@ export default {
     async bookDoctorAppointment(headers){
         await Csrf.getCookie()
         return Api.post('/book_appointment/store',headers)
+    },
+    async listSpecialities(){
+        return  Api.get('/speciality/index')
     }
+
 };

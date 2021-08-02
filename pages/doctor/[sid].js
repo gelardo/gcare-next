@@ -3,13 +3,27 @@ import { useRouter } from 'next/router'
 import LocationFinder from "../../components/DoctorBooking/location_finder";
 import DoctorSearch from "../../components/DoctorBooking/doctor_search";
 import DoctorList from "../../components/DoctorBooking/doctor_list";
+
 import DoctorBookingForm from "../../components/DoctorBooking/doctor_booking_form";
+import User from "../../api/User";
+import Api from "../../api/Api";
 const Doctor = ({doctorList}) => {
     const router = useRouter()
     const { sid } = router.query
-
     let doctors = doctorList.data[0].doctors
-    console.log(doctors)
+    // User.listSpecialities().then(function (response){
+    //     console.log(response)
+    //     // Get the paths we want to pre-render based on posts
+    //     // const paths = response.data.data.map((speciality) => (
+    //     //     {
+    //     //          params: { sid: speciality.id.toString() },
+    //     //     }
+    //     //
+    //     // ))
+    //     // console.log(paths)
+    //     // return { paths, fallback: 'blocking' }
+    // })
+    // console.log(doctors)
         return (
             <>
             <LocationFinder/>
@@ -39,12 +53,20 @@ export async function getStaticProps({params}) {
     }
 }
 export async function getStaticPaths() {
+    const request  = await Api.get('https://gcare.com.bd/api/speciality/index')
+
+    // console.log(request.data.data)
+    //const paths = movies.map(movie =>`/movies/${movie.show.id}`)
+
+    const paths = request.data.data.map(speciality =>({
+        params: {sid: speciality.id.toString()},
+    }))
+
     return {
-        paths: [
-            { params: { sid: '1' } },
-        ],
-        fallback: false,
+        paths,
+        fallback: false
     }
+
 }
 
 export default Doctor
