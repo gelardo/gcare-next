@@ -4,7 +4,7 @@ import User from "../../api/User";
 function Department(props) {
     const[departmentList, setDepartmentList] = useState([]);
     useEffect(()=>{
-        User.listDepartment().then(
+        User.listData('speciality').then(
             function (response){
                 setDepartmentList(response.data.data)
             }

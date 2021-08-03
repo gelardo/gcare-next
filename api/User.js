@@ -38,9 +38,9 @@ export default {
         await Csrf.getCookie();
         return Api.post('/update_profile',headers)
     },
-    async listDepartment(headers){
+    async listData(model,headers = null){
         await Csrf.getCookie();
-        return Api.get('/speciality/index',headers)
+        return Api.get('/'+model+'/index',headers)
     },
     async bookDoctorAppointment(headers){
         await Csrf.getCookie()

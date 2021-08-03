@@ -85,29 +85,29 @@ const Login = () => {
 }
 
 export default Login;
-// export async function getServerSideProps({ res, req }) {
-//     // Is there a better way to know the user is already logged in?
-//     try {
-//         const isAuthed = await fetch(`https://gcare.com.bd/api/user`, {
-//             credentials: "include",
-//             headers: {
-//                 accept: 'application/json',
-//                 referer: 'https://gcare.com.bd',
-//                 cookie: req.headers.cookie,
-//             }
-//         });
-//         if (isAuthed.status === 200) {
-//             res.setHeader('Location', "/");
-//             res.statusCode = 302;
-//
-//             return { props: { } };
-//         }
-//     } catch (error) {
-//         console.error(error);
-//     }
-//
-//     const csrf = await fetch(`https://gcare.com.bd/sanctum/csrf-cookie`)
-//     res.setHeader('set-cookie', csrf.headers.raw()['set-cookie']);
-//
-//     return { props: { } };
-// }
+export async function getServerSideProps({ res, req }) {
+    // Is there a better way to know the user is already logged in?
+    try {
+        const isAuthed = await fetch(`https://gcare.com.bd/api/user`, {
+            credentials: "include",
+            headers: {
+                accept: 'application/json',
+                referer: 'https://gcare.com.bd',
+                cookie: req.headers.cookie,
+            }
+        });
+        if (isAuthed.status === 200) {
+            res.setHeader('Location', "/");
+            res.statusCode = 302;
+
+            return { props: { } };
+        }
+    } catch (error) {
+        console.error(error);
+    }
+
+    const csrf = await fetch(`https://gcare.com.bd/sanctum/csrf-cookie`)
+    res.setHeader('set-cookie', csrf.headers.raw()['set-cookie']);
+
+    return { props: { } };
+}
