@@ -88,7 +88,7 @@ export default Login;
 export async function getServerSideProps({ res, req }) {
     // Is there a better way to know the user is already logged in?
     try {
-        const isAuthed = await fetch(`https://gcare.com.bd/api/user`, {
+        const isAuthed = await fetch(`https://backend.gcare.com.bd/api/user`, {
             credentials: "include",
             headers: {
                 accept: 'application/json',
@@ -106,7 +106,7 @@ export async function getServerSideProps({ res, req }) {
         console.error(error);
     }
 
-    const csrf = await fetch(`https://gcare.com.bd/sanctum/csrf-cookie`)
+    const csrf = await fetch(`https://backend.gcare.com.bd/sanctum/csrf-cookie`)
     res.setHeader('set-cookie', csrf.headers.raw()['set-cookie']);
 
     return { props: { } };

@@ -19,7 +19,7 @@ export const useAuth = () => useContext(authContext)
 function useProviderAuth(){
     const[user,setUser] = useState(null);
     const router = useRouter();
-    const login = (email,password) => fetch('https://gcare.com.bd/api/login/1  ',{
+    const login = (email,password) => fetch('https://backend.gcare.com.bd/api/login/1  ',{
         method:'POST',
         credentials: "include",
         headers:{
@@ -32,7 +32,7 @@ function useProviderAuth(){
         fetchUser();
         return data;
     });
-    const logout = (email, password) => fetch('https://gcare.com.bd/api/logout', {
+    const logout = (email, password) => fetch('https://backend.gcare.com.bd/api/logout', {
         method: 'POST',
         credentials: "include",
         headers: {

@@ -37,7 +37,7 @@ function Profile(props) {
             const response = await User.profileImage(header);
             if (response.status === 200) {
                 // const data =  response.data;
-                setProfileImage("http://localhost:8000/uploads/"+response.data.data.image_name)
+                setProfileImage("https://backend.gcare.com.bd/uploads/"+response.data.data.image_name)
                 // setProfileImage(data);
             }
             else {
