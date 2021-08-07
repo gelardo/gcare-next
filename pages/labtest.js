@@ -30,7 +30,6 @@ function Labtest({pathoLogyList}) {
         ).catch()
     },[])
 
-    console.log(show)
     return (
         <>
             <LabAddress/>
@@ -213,7 +212,7 @@ function Labtest({pathoLogyList}) {
 export async function getStaticProps({params}) {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
-    const res = await fetch('https://gcare.com.bd/api/pathology/index')
+    const res = await fetch('https://backend.gcare.com.bd/api/pathology/index')
     const pathoLogyList = await res.json()
     // By returning { props: { posts } }, the Blog component
     // will receive `posts` as a prop at build time
