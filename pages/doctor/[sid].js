@@ -41,7 +41,7 @@ const Doctor = ({doctorList}) => {
 export async function getStaticProps({params}) {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
-    const res = await fetch('https://gcare.com.bd/api/speciality/show/'+params.sid)
+    const res = await fetch('https://backend.gcare.com.bd/api/speciality/show/'+params.sid)
     const doctorList = await res.json()
 
     // By returning { props: { posts } }, the Blog component
@@ -53,7 +53,7 @@ export async function getStaticProps({params}) {
     }
 }
 export async function getStaticPaths() {
-    const request  = await Api.get('https://gcare.com.bd/api/speciality/index')
+    const request  = await Api.get('https://backend.gcare.com.bd/api/speciality/index')
 
     // console.log(request.data.data)
     //const paths = movies.map(movie =>`/movies/${movie.show.id}`)
