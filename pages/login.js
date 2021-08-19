@@ -23,7 +23,6 @@ const Login = () => {
             data.append('password',userpassword);
             try {
                 const loginAttempt = await login(useremail, userpassword).then(function (response){
-                    console.log(response.data)
                     if (response.ok === true) {
                         router.push('/profile');
                     } else {

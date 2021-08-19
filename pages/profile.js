@@ -96,7 +96,7 @@ function Profile(props) {
               User.uploadProfileImages(data).then(response => {
                 if (response.status === 200) {
                             // const data =  response.data;
-                    setProfileImage("http://localhost:8000/uploads/"+response.data.image_name)
+                    setProfileImage("https://backend.gcare.com.bd/uploads/"+response.data.image_name)
                             // setProfileImage(data);
                              document.querySelector("#inputProfileImage").value = "";
                         }

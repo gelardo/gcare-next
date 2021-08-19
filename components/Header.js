@@ -12,7 +12,7 @@ const Header = (props) => {
             <nav className="navbar sticky-top navbar-light bg-white shadow-sm py-2 py-md-3 text-center">
                 <div className="container">
                     <Link href="/" >
-                            <img src="/static/images/Gcare.svg" height={'50px'} alt=""/>
+                            <img src="/static/images/Gcare.jpeg" height={'50px'} alt=""/>
                     </Link>
                     <button className="navbar-toggler" onClick={toggle} type="button"  aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
